@@ -18,14 +18,16 @@ def limit_handled(cursor):
     while True:
         try:
             yield cursor.next()
-        except (tweepy.TweepError, StopIteration):
+        except (tweepy.TweepError):
             print("Query limit reached, currently sleeping")
             time.sleep(15 * 60)
+        except (StopIteration):
+            break
 
 buffer = 0
 
 #NCAA tweets-1
-csvFile = io.open('ncaa_tweets.csv', 'a', encoding="utf-8")
+csvFile = io.open('ncaa_tweets-1.csv', 'a', encoding="utf-8")
 csvWriter = csv.writer(csvFile)
 for tweet in limit_handled(tweepy.Cursor(api.search,q = "march madness OR #marchmadness OR elite eight OR final four",lang = "en").items()):
     if 'RT @' not in tweet.text:
@@ -38,7 +40,7 @@ for tweet in limit_handled(tweepy.Cursor(api.search,q = "march madness OR #march
 csvFile.close()
 
 #NCAA tweets-2
-csvFile = io.open('ncaa_tweets.csv', 'a', encoding="utf-8")
+csvFile = io.open('ncaa_tweets-1.csv', 'a', encoding="utf-8")
 csvWriter = csv.writer(csvFile)
 for tweet in limit_handled(tweepy.Cursor(api.search,q = "sweet sixteen OR duke OR michigan state OR texas tech",lang = "en").items()):
     if 'RT @' not in tweet.text:
@@ -51,7 +53,7 @@ for tweet in limit_handled(tweepy.Cursor(api.search,q = "sweet sixteen OR duke O
 csvFile.close()
 
 #NFL tweets
-csvFile = io.open('nfl_tweets.csv', 'a', encoding="utf-8")
+csvFile = io.open('nfl_tweets-1.csv', 'a', encoding="utf-8")
 csvWriter = csv.writer(csvFile)
 for tweet in limit_handled(tweepy.Cursor(api.search,q = "nfl OR nfl draft OR mockdraft OR #nfldraft",lang = "en",).items()):
     if 'RT @' not in tweet.text:
@@ -103,7 +105,7 @@ for tweet in limit_handled(tweepy.Cursor(api.search,q = "nhl OR nhlplayoffs",lan
 csvFile.close()
 
 #League tweets-1
-csvFile = io.open('league_tweets-1.csv', 'a', encoding="utf-8")
+csvFile = io.open('league_tweets.csv', 'a', encoding="utf-8")
 csvWriter = csv.writer(csvFile)
 for tweet in limit_handled(tweepy.Cursor(api.search,q = "#lcs OR TSMWin OR FOXWin OR C9Win OR FLYWin OR GGSWin",lang = "en").items()):
     if 'RT @' not in tweet.text:
@@ -116,7 +118,7 @@ for tweet in limit_handled(tweepy.Cursor(api.search,q = "#lcs OR TSMWin OR FOXWi
 csvFile.close()
 
 #League tweets-2
-csvFile = io.open('league_tweets-1.csv', 'a', encoding="utf-8")
+csvFile = io.open('league_tweets.csv', 'a', encoding="utf-8")
 csvWriter = csv.writer(csvFile)
 for tweet in limit_handled(tweepy.Cursor(api.search,q = "TLWin OR CGWin OR OPTWin OR 100Win OR CLGWin OR lolesports",lang = "en").items()):
     if 'RT @' not in tweet.text:
