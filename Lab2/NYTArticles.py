@@ -1,10 +1,10 @@
-from yanytapi import SearchAPI
+from nytimesarticle import articleAPI
 
-api = SearchAPI('9vBbIBydobSjA6kGoUqq0MNGg4rqZtLy')
+api = articleAPI('9vBbIBydobSjA6kGoUqq0MNGg4rqZtLy')
 
 
 dict = {'headline': 'e-sports', 'source': ['The New York Times']}
-articles = api.search("league of legends",
+articles = api.search("leagueoflegends",
                        fq = dict,
                        begin_date = 20100101)
 
