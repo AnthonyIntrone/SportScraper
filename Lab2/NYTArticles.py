@@ -1,45 +1,20 @@
-from yanytapi import SearchAPI
-
-api = SearchAPI('9vBbIBydobSjA6kGoUqq0MNGg4rqZtLy')
-
-
-dict = {'headline': 'e-sports', 'source': ['The New York Times']}
-articles = api.search("league of legends",
-                       fq = dict,
-                       begin_date = 20100101)
+import json
+import requests
 
 
-def parse_articles(articles):
-    news = []
-    for i in articles['response']['docs']:
-        dic = {}
-        dic['id'] = i['_id']
-        if i['abstract'] is not None:
-            dic['abstract'] = i['abstract'].encode("utf8")
-        dic['headline'] = i['headline']['main'].encode("utf8")
-        dic['desk'] = i['news_desk']
-        dic['date'] = i['pub_date'][0:10] # cutting time of day.
-        dic['section'] = i['section_name']
-        if i['snippet'] is not None:
-            dic['snippet'] = i['snippet'].encode("utf8")
-        dic['source'] = i['source']
-        dic['type'] = i['type_of_material']
-        dic['url'] = i['web_url']
-        dic['word_count'] = i['word_count']
-        # locations
-        locations = []
-        for x in range(0,len(i['keywords'])):
-            if 'glocations' in i['keywords'][x]['name']:
-                locations.append(i['keywords'][x]['value'])
-        dic['locations'] = locations
-        # subject
-        subjects = []
-        for x in range(0,len(i['keywords'])):
-            if 'subject' in i['keywords'][x]['name']:
-                subjects.append(i['keywords'][x]['value'])
-        dic['subjects'] = subjects
-        news.append(dic)
-    return(news)
 
-league_articles = parse_articles(articles)
+def parse_articles():
+    urls = []
+    for i in range(0,10):
+        
+        api_url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=nba&offset=" + str(i) + "&api-key=9vBbIBydobSjA6kGoUqq0MNGg4rqZtLy"
+        data = requests.get(api_url)
+        data = data.json()
+        data = data['response']['docs']
+        for url in data:
+            urls.append(url['web_url'])
 
+    print(urls)
+    return urls
+
+league_articles = parse_articles()
