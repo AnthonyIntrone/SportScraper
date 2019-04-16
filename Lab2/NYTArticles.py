@@ -1,3 +1,6 @@
+# Authors: Anthony Introne
+#          Mike Klein
+
 import json
 import requests
 from bs4 import BeautifulSoup
@@ -5,7 +8,11 @@ import csv
 import io
 import time
 
-# ****************************************************************** Multi-Purpose Functions ************************************************************
+
+#        ______________________________________________________________________________
+#       | NOTICE: BE IN THE Lab2/data/nyt: directory before running the following code |
+#       |______________________________________________________________________________|
+
 
 # Grabbing all the urls for a given sub topic in New York Times
 def grab_article_urls(subtopic):
