@@ -6,7 +6,6 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import *
 import io
 import re
-import pandas as pd
 import csv
 
 #        ________________________________________________________________________________
@@ -18,21 +17,37 @@ def cleanTwitterData(subtopic):
 
     all_text = []
     with open("../data/Twitter/" + subtopic + "_tweets.csv", 'r') as tweets:
-        reader = csv.reader(, delimiter=',')
-        for row in reader:
-            all_text.append(row[1])
-        
-    print(all_text)
-    text_column = data.iloc[:,3]
-    text_column.to_csv(path_or_buf = "../data/Twitter/" + subtopic + "_data_text.csv", sep=' ', index=False, header=False)
-    text = pd.read_csv("../data/Twitter/" + subtopic + "_data_text.csv")
-    new_file = open("../data/Twitter/" + subtopic + "_data_clean.txt", "w")
-    # for line in text:
-    #     # print(line)
-    #     new_file.write(line) 
+        reader = csv.reader(tweets, delimiter=',')
+        for column in reader:
+            if len(column) == 0:
+                continue
+            else:
+                all_text.append(column[3])
+    
+    ready_text = []
+    for text in all_text:
+        list_text = text.split()
+        for some_text in list_text:
+            ready_text.append(some_text)
+
+    clean_text = []
+    for string in ready_text:
+        if string[:4] == "http":
+            continue
+        else: 
+            new_string = re.sub('[^\w\s]', '', string)
+            if len(new_string) == 0:
+                continue
+            else:
+                print(new_string)
+            
+
+    with open("../data/Twitter/" + subtopic + "_just_text.txt", "w") as tweets_text:
+        for text in ready_text:
+            tweets_text.write(text + "\n") 
     
     tweets.close()
-    new_file.close()
+    tweets_text.close()
 
 
     
@@ -83,8 +98,8 @@ def cleanNYTData(subtopic):
 
 # *************************************** Main ***************************************
 
-# cleanTwitterData("esports")
-cleanTwitterData("nba")
+cleanTwitterData("esports")
+# cleanTwitterData("nba")
 # cleanTwitterData("nfl")
 # cleanTwitterData("nhl")
 # cleanTwitterData("ncaa")
