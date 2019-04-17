@@ -15,6 +15,7 @@ import csv
 # Cleaning the Twitter Data Collection
 def cleanTwitterData(subtopic):
 
+    # Grabbing all the data from the csv and placing into a list 
     all_text = []
     with open("../data/Twitter/" + subtopic + "_tweets.csv", 'r') as tweets:
         reader = csv.reader(tweets, delimiter=',')
@@ -24,13 +25,15 @@ def cleanTwitterData(subtopic):
             else:
                 all_text.append(column[3])
     
+    # Splitting up every sentence into words
     ready_text = []
     for text in all_text:
         list_text = text.split()
         for some_text in list_text:
             ready_text.append(some_text)
 
-    clean_text = []
+    # Removing nonsense marks
+    full_send_text = []
     for string in ready_text:
         if string[:4] == "http":
             continue
@@ -39,11 +42,24 @@ def cleanTwitterData(subtopic):
             if len(new_string) == 0:
                 continue
             else:
-                print(new_string)
-            
+                full_send_text.append(new_string)
+                
+    # Defining stop words to extract from the text
+    stop_words = set(stopwords.words('english'))
+    charFilter = [':',':','"',',','.','/','?','<','>','!','@','#','$','%','^','&','*',
+                  '(',')',')','_','•','-','—','1','2','3','4','5','6','7','8','9','0',
+                  'the','by','e']
+    for char in charFilter:
+        stop_words.add(char)
+    clean_text = []
 
-    with open("../data/Twitter/" + subtopic + "_just_text.txt", "w") as tweets_text:
-        for text in ready_text:
+    for text in full_send_text:
+        print(text)
+        if text not in stop_words:
+            clean_text.append(text)
+
+    with open("../data/Twitter/" + subtopic + "_data_clean.txt", "w") as tweets_text:
+        for text in clean_text:
             tweets_text.write(text + "\n") 
     
     tweets.close()
@@ -99,10 +115,10 @@ def cleanNYTData(subtopic):
 # *************************************** Main ***************************************
 
 cleanTwitterData("esports")
-# cleanTwitterData("nba")
-# cleanTwitterData("nfl")
-# cleanTwitterData("nhl")
-# cleanTwitterData("ncaa")
+cleanTwitterData("nba")
+cleanTwitterData("nfl")
+cleanTwitterData("nhl")
+cleanTwitterData("ncaa")
 
 
 # cleanNYTData("esports")

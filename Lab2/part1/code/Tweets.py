@@ -1,3 +1,6 @@
+# Authors: Anthony Introne
+#          Mike Klein
+
 import tweepy
 import csv
 import time
