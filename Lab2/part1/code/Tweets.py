@@ -1,6 +1,3 @@
-# Authors: Mike Klein
-#          Anthony Introne
-
 import tweepy
 import csv
 import time
@@ -29,36 +26,10 @@ def limit_handled(cursor):
 
 buffer = 0
 
-#NCAA tweets-1
-csvFile = io.open('../data/Twitter/ncaa_tweets-1.csv', 'a', encoding="utf-8")
+#Esports tweets
+csvFile = io.open('esports_tweets.csv', 'a', encoding="utf-8")
 csvWriter = csv.writer(csvFile)
-for tweet in limit_handled(tweepy.Cursor(api.search,q = "march madness OR #marchmadness OR elite eight OR final four",lang = "en").items()):
-    if 'RT @' not in tweet.text:
-        csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
-        print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
-        buffer += 1
-    if buffer == 5000:
-        buffer = 0
-        break
-csvFile.close()
-
-#NCAA tweets-2
-csvFile = io.open('../data/Twitter/ncaa_tweets-1.csv', 'a', encoding="utf-8")
-csvWriter = csv.writer(csvFile)
-for tweet in limit_handled(tweepy.Cursor(api.search,q = "sweet sixteen OR duke OR michigan state OR texas tech",lang = "en").items()):
-    if 'RT @' not in tweet.text:
-        csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
-        print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
-        buffer += 1
-    if buffer == 5000:
-        buffer = 0
-        break
-csvFile.close()
-
-#NFL tweets
-csvFile = io.open('../data/Twitter/nfl_tweets-1.csv', 'a', encoding="utf-8")
-csvWriter = csv.writer(csvFile)
-for tweet in limit_handled(tweepy.Cursor(api.search,q = "nfl OR nfl draft OR mockdraft OR #nfldraft",lang = "en",).items()):
+for tweet in limit_handled(tweepy.Cursor(api.search,q = "esports OR e sports OR e-sports",lang = "en").items()):
     if 'RT @' not in tweet.text:
         csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
         print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
@@ -68,67 +39,57 @@ for tweet in limit_handled(tweepy.Cursor(api.search,q = "nfl OR nfl draft OR moc
         break
 csvFile.close()
 
-#NBA tweets-1
-csvFile = open('../data/Twitter/nba_tweets.csv', 'a', encoding="utf-8")
-csvWriter = csv.writer(csvFile)
-for tweet in limit_handled(tweepy.Cursor(api.search,q = "nba OR nbaplayoffs OR lebron OR steph OR lakers OR warriors",lang = "en").items()):
-    if 'RT @' not in tweet.text:
-        csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
-        print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
-        buffer += 1
-    if buffer == 5000:
-        buffer = 0
-        break
-csvFile.close()
 
-#NBA tweets-2
-csvFile = open('../data/Twitter/nba_tweets.csv', 'a', encoding="utf-8")
-csvWriter = csv.writer(csvFile)
-for tweet in limit_handled(tweepy.Cursor(api.search,q = "westbrook OR harden OR giannis OR draymond OR rockets",lang = "en").items()):
-    if 'RT @' not in tweet.text:
-        csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
-        print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
-        buffer += 1
-    if buffer == 5000:
-        buffer = 0
-        break
-csvFile.close()
 
-#NHL tweets
-csvFile = open('../data/Twitter/nhl_tweets.csv', 'a', encoding="utf-8")
-csvWriter = csv.writer(csvFile)
-for tweet in limit_handled(tweepy.Cursor(api.search,q = "nhl OR nhlplayoffs",lang = "en").items()):
-    if 'RT @' not in tweet.text:
-        csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
-        print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
-        buffer += 1
-    if buffer == 10000:
-        buffer = 0
-        break
-csvFile.close()
-
-#League tweets-1
-csvFile = io.open('../data/Twitter/league_tweets.csv', 'a', encoding="utf-8")
-csvWriter = csv.writer(csvFile)
-for tweet in limit_handled(tweepy.Cursor(api.search,q = "#lcs OR TSMWin OR FOXWin OR C9Win OR FLYWin OR GGSWin",lang = "en").items()):
-    if 'RT @' not in tweet.text:
-        csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
-        print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
-        buffer +=1
-    if buffer == 5000:
-        buffer = 0
-        break
-csvFile.close()
-
-#League tweets-2
-csvFile = io.open('../data/Twitter/league_tweets.csv', 'a', encoding="utf-8")
-csvWriter = csv.writer(csvFile)
-for tweet in limit_handled(tweepy.Cursor(api.search,q = "TLWin OR CGWin OR OPTWin OR 100Win OR CLGWin OR lolesports",lang = "en").items()):
-    if 'RT @' not in tweet.text:
-        csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
-        print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
-        buffer += 1
-    if buffer == 5000:
-        buffer = 0
-        break
-csvFile.close()
+# #NFL tweets
+# csvFile = io.open('nfl_tweets-1.csv', 'a', encoding="utf-8")
+# csvWriter = csv.writer(csvFile)
+# for tweet in limit_handled(tweepy.Cursor(api.search,q = "nfl OR nfl draft OR mockdraft OR #nfldraft",lang = "en",).items()):
+#     if 'RT @' not in tweet.text:
+#         csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
+#         print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
+#         buffer += 1
+#     if buffer == 10000:
+#         buffer = 0
+#         break
+# csvFile.close()
+#
+# #NBA tweets
+# csvFile = open('nba_tweets.csv', 'a', encoding="utf-8")
+# csvWriter = csv.writer(csvFile)
+# for tweet in limit_handled(tweepy.Cursor(api.search,q = "nba",lang = "en").items()):
+#     if 'RT @' not in tweet.text:
+#         csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
+#         print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
+#         buffer += 1
+#     if buffer == 10000:
+#         buffer = 0
+#         break
+# csvFile.close()
+#
+#
+# #NHL tweets
+# csvFile = open('nhl_tweets.csv', 'a', encoding="utf-8")
+# csvWriter = csv.writer(csvFile)
+# for tweet in limit_handled(tweepy.Cursor(api.search,q = "nhl",lang = "en").items()):
+#     if 'RT @' not in tweet.text:
+#         csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
+#         print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
+#         buffer += 1
+#     if buffer == 10000:
+#         buffer = 0
+#         break
+# csvFile.close()
+#
+# #League tweets
+# csvFile = io.open('league_tweets.csv', 'a', encoding="utf-8")
+# csvWriter = csv.writer(csvFile)
+# for tweet in limit_handled(tweepy.Cursor(api.search,q = "#lcs OR lolesports",lang = "en").items()):
+#     if 'RT @' not in tweet.text:
+#         csvWriter.writerow([tweet.user.name, tweet.id_str, tweet.created_at, tweet.text])
+#         print(tweet.user.name, tweet.id_str, tweet.created_at, tweet.text)
+#         buffer +=1
+#     if buffer == 10000:
+#         buffer = 0
+#         break
+# csvFile.close()
