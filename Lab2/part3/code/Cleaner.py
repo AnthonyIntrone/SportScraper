@@ -9,7 +9,7 @@ import re
 import csv
 
 #        ________________________________________________________________________________
-#       | NOTICE: BE IN THE Lab2/part1/code: directory before running the following code |
+#       | NOTICE: BE IN THE Lab2/part3/code: directory before running the following code |
 #       |________________________________________________________________________________|
 
 # Cleaning the Twitter Data Collection
@@ -17,7 +17,7 @@ def cleanTwitterData(subtopic):
 
     # Grabbing all the data from the csv and placing into a list 
     all_text = []
-    with open("../data/Twitter/" + subtopic + "_tweets.csv", 'r') as tweets:
+    with open("../../part1/data/Twitter/" + subtopic + "_tweets.csv", 'r') as tweets:
         reader = csv.reader(tweets, delimiter=',')
         for column in reader:
             if len(column) == 0:
@@ -57,12 +57,13 @@ def cleanTwitterData(subtopic):
         if text not in stop_words:
             clean_text.append(text)
 
-    with open("../data/Twitter/" + subtopic + "_data_clean.txt", "w") as tweets_text:
+    with open("../../part1/data/Twitter/" + subtopic + "_data_clean.txt", "w") as tweets_text:
         for text in clean_text:
             tweets_text.write(text + "\n") 
     
     tweets.close()
     tweets_text.close()
+    print("Twitter Cleaned")
 
 
     
@@ -70,8 +71,8 @@ def cleanTwitterData(subtopic):
 def cleanNYTData(subtopic):
 
     # Opening the files to read & write
-    orig_file = open("../data/NYT/" + subtopic + "_articles_text.txt", "r")
-    new_file = open("../data/NYT/" + subtopic + "_data_clean.txt", "w")
+    orig_file = open("../../part1/data/NYT/" + subtopic + "_articles_text.txt", "r")
+    new_file = open("../../part1/data/NYT/" + subtopic + "_data_clean.txt", "w")
 
     # Defining stop words to extract from the text
     stop_words = set(stopwords.words('english'))
@@ -103,6 +104,7 @@ def cleanNYTData(subtopic):
 
     orig_file.close()
     new_file.close()
+    print("New York Times Cleaned")
 
 
 # def cleanCCData(subtopic):
