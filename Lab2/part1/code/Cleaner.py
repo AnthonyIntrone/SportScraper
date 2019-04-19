@@ -54,7 +54,6 @@ def cleanTwitterData(subtopic):
     clean_text = []
 
     for text in full_send_text:
-        print(text)
         if text not in stop_words:
             clean_text.append(text)
 
@@ -120,12 +119,11 @@ cleanTwitterData("nfl")
 cleanTwitterData("nhl")
 cleanTwitterData("ncaa")
 
-
-# cleanNYTData("esports")
-# cleanNYTData("nba")
-# cleanNYTData("nfl")
-# cleanNYTData("nhl")
-# cleanNYTData("ncaam")
+cleanNYTData("esports")
+cleanNYTData("nba")
+cleanNYTData("nfl")
+cleanNYTData("nhl")
+cleanNYTData("ncaam")
 
 # cleanCCData("esports")
 # cleanCCData("nba")
