@@ -1,0 +1,16 @@
+{
+  "name": "Sports-Data-Analysis",
+  "version": "1.0.0",
+  "description": "Data Analysis on Sports",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node js/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mklein5/487Lab2.git"
+  },
+  "author": "Anthony Introne, Mike Klein",
+  "license": "ISC"
+}
