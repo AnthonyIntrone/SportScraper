@@ -9,22 +9,44 @@
   <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://d3js.org/d3.v3.js"></script>
+  <script src="js/index.js"></script>
 </head>
+
+ <style type="text/css">
+    body { background-image: url("imgs/stadium.jpg"); }
+ </style>
 <body>
-                <div class="dropdown" style="height: 30%; width: 50%; margin: 0 auto">
+    <div class="container-fluid">
+        <div class="row mb-5 mt-5">
+            <div class="col-lg center-block text-center">
+                   <h2> Sports Word Cloud Data Analysis </h2>
+            </div>
+        </div>
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-3 center-block text-right"> Please select a word cloud: </div>
+            <div class="col-lg-3">
+                <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="word_cloud_button" data-toggle="dropdown">
                         Word Cloud
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Twitter - Word Count</a>
-                        <a class="dropdown-item" href="#">Twitter - Co-Occurrence</a>
+                        <a class="dropdown-item" href="#" id="TWC" onclick="setTWCSRC()"> Twitter - Word Count </a>
+                        <a class="dropdown-item" href="#" id="TCO" onclick="setTCOSRC()"> Twitter - Co-Occurrence </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">New York Times - Word Count</a>
-                        <a class="dropdown-item" href="#">New York Times - Co-Occurrence</a>
+                        <a class="dropdown-item" href="#" id="NYTWC" onclick="setNYTWCSRC()"> New York Times - Word Count </a>
+                        <a class="dropdown-item" href="#" id="NYTCO"> New York Times - Co-Occurrence </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Common Crawl - Word Count</a>
-                        <a class="dropdown-item" href="#">Common Crawl - Co-Occurrence</a>
+                        <a class="dropdown-item" href="#" id="CCWC"> Common Crawl - Word Count </a>
+                        <a class="dropdown-item" href="#" id="CCCO"> Common Crawl - Co-Occurrence </a>
                     </div>
-                </div>      
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row mt-5 mb-5">
+            <div class="col-lg" style="opacity: 0.7"><img class="mx-auto d-block" id="wordcloud" src="imgs/test.png"></div>
+        </div>
+    </div>
 </body>
 </html>

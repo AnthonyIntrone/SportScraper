@@ -63,7 +63,7 @@ def cleanTwitterData(subtopic):
     
     tweets.close()
     tweets_text.close()
-    print("Twitter Cleaned")
+    print("Twitter " + subtopic.upper() + " Cleaned")
 
 
     
@@ -104,7 +104,7 @@ def cleanNYTData(subtopic):
 
     orig_file.close()
     new_file.close()
-    print("New York Times Cleaned")
+    print("New York Times " + subtopic.upper() + " Cleaned")
 
 
 # def cleanCCData(subtopic):

@@ -30,7 +30,7 @@ def ManyToOne(data_source, subtop1, subtop2, subtop3, subtop4, subtop5):
                 data_file.write(data)
             nhl.close()
     data_file.close()
-    print("Many Files To One File Finished")
+    print("Many Files To One File For " + data_source + " Finished")
 
 ManyToOne("NYT", "esports", "nba", "ncaam", "nfl", "nhl")
 ManyToOne("Twitter", "esports", "nba", "ncaa", "nfl", "nhl")
