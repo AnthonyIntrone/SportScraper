@@ -1,12 +1,14 @@
 #!/usr/bin/env python
-# mapper.py
+"""mapper.py"""
 import sys
 
-#--- get all lines from stdin ---
+lst = []
 for line in sys.stdin:
-    print(line)
-
-
-    # #--- output tuples [word, 1] in tab-delimited format ---
-    # for word in words:
-    #     print '%s\t%s' % (word, "1")
+    data = line.strip()
+    data = data[:len(data) -1]
+    lst.append(data)
+for i in range(1,len(lst) - 1):
+    pair1 = "(" + lst[i] + "," + lst[i-1] + ")   1"
+    pair2 = "(" + lst[i] + "," + lst[i+1] + ")   1"
+    print(pair1)
+    print(pair2)
