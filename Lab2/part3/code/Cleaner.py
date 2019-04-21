@@ -38,7 +38,7 @@ def cleanTwitterData(subtopic):
         if string[:4] == "http":
             continue
         else: 
-            new_string = re.sub('[^\w\s]', '', string)
+            new_string = re.sub('[^\w\s]', '', string.lower())
             if len(new_string) == 0:
                 continue
             else:
