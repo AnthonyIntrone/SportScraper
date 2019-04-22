@@ -35,6 +35,7 @@ NOTE: When executing a python script, make sure to be within that directory for 
 
 Check Out: Index.html if you want to see the word clouds on a webpage | Open index.html in your browser
 
+Hadoop/Cluster Infrastructure: AWS EMR & S3
 
 File Structure Documentation: The below file structure is represented when in Lab2 root
 
