@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """reducer.py"""
-
+# Authors: Anthony Introne
+#          Michael Klein
 from operator import itemgetter
 import sys
 import re

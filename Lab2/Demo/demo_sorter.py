@@ -1,3 +1,5 @@
+# Authors: Anthony Introne
+#          Michael Klein
 # Opening file and converting each line into a key value pair and appending to list
 with open("demo_wc.txt","r") as demo:
     tuple_list = []

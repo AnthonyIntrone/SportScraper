@@ -1,3 +1,6 @@
+# Authors: Anthony Introne
+#          Michael Klein
+# File writing to one file from three
 with open("demo_wc.txt","w") as demo:
     with open("demo_part1","r") as file1:
         data1 = file1.readlines()

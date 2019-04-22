@@ -4,7 +4,8 @@ from nltk.stem.porter import *
 import io
 import re
 import csv
-
+# Authors: Anthony Introne
+#          Michael Klein
 # Opening the files to read & write
 orig_file = open("demo_text.txt", "r")
 new_file = open("demo_clean.txt", "w")

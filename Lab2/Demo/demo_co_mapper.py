@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 """mapper.py"""
+# Authors: Anthony Introne
+#          Michael Klein
 import sys
-
+# Mapping a pair to its count (pair -> (word,neighbor))
 with open("demo_clean.txt","r") as demo:
     lst = []
     demodata = demo.readlines()

@@ -31,10 +31,16 @@ Background:
         Install Linux and follow above directions
 
 
+NOTE: When executing a python script, make sure to be within that directory for it to work properly and find approriate files.
+
+Check Out: Index.html if you want to see the word clouds on a webpage | Open index.html in your browser
+
+
 File Structure Documentation: The below file structure is represented when in Lab2 root
 
 part1
     |- code
+    |   |- commoncrawl.py
     |   |- NYTArticles.py
     |   |- Tweets.py
     |- data
@@ -93,3 +99,9 @@ webpage
     |- imgs
     |- js
     |- templates
+
+Report.docx
+
+video.txt
+
+Word_Count_And_Co_Occurrence_Visualizations.twb
