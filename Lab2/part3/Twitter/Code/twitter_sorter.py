@@ -1,3 +1,5 @@
+#Authors: Anthony Introne
+#         Michael Klein
 # Opening file and converting each line into a key value pair and appending to list
 with open("../WordCountData/twitter_wc.txt","r") as twit:
     tuple_list = []

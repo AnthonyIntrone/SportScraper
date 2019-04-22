@@ -1,5 +1,5 @@
-# Authors: Anthony Introne
-#          Mike Klein
+#Authors: Anthony Introne
+#         Michael Klein
 
 import tweepy
 import csv
@@ -16,7 +16,7 @@ access_token_secret = "luCeM1o01QocLc7RH7mWEg2F0dWZvrllbKQRXBkP7Tye3"
 auth = tweepy.AppAuthHandler(api_key,api_secret_key)
 api = tweepy.API(auth)
 
-#sleeper
+#Sleeping to counter the api limit
 def limit_handled(cursor):
     while True:
         try:

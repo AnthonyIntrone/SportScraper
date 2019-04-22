@@ -1,3 +1,7 @@
+#Authors: Anthony Introne
+#         Michael Klein
+
+# Combining the aws output files into one
 with open("../output/HFinn/HFinn_wc.txt","w") as HFinn:
     with open("../output/HFinn/HFinn_part1","r") as file1:
         data1 = file1.readlines()
@@ -20,6 +24,7 @@ file2.close()
 file3.close()
 HFinn.close()
 
+# Combining the aws output files into one
 with open("../output/PG345/pg345_wc.txt","w") as Pg345:
     with open("../output/PG345/pg345_part1","r") as file4:
         data1 = file4.readlines()

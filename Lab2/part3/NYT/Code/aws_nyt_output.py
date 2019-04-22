@@ -1,4 +1,6 @@
-
+#Authors: Anthony Introne
+#         Michael Klein
+# Combining the aws output files into one
 with open("../WordCountData/nyt_wc.txt","w") as NYT:
     with open("../WordCountData/nyt_part1","r") as file1:
         data1 = file1.readlines()

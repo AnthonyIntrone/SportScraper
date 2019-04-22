@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 """mapper.py"""
+#Authors: Anthony Introne
+#         Michael Klein
 import sys
 
+# Mapping each word with its neighbor and writing to another file
 with open("../../../part1/data/NYT/NYT.txt","r") as nyt:
     lst = []
     nytdata = nyt.readlines()
@@ -17,6 +20,7 @@ with open("../../../part1/data/NYT/NYT.txt","r") as nyt:
 nyt.close()
 nytmap.close()
 
+# Mapping each word with its neighbor and writing to another file
 with open("../../../part1/data/Twitter/Twitter.txt","r") as twitter:
     lst = []
     twdata = twitter.readlines()
@@ -30,3 +34,18 @@ with open("../../../part1/data/Twitter/Twitter.txt","r") as twitter:
 
 twitter.close()
 twmap.close()
+
+# Mapping each word with its neighbor and writing to another file
+with open("../../../part1/data/CommonCrawl/cc.txt","r") as cc:
+    lst = []
+    ccdata = cc.readlines()
+    for data in ccdata:
+        data = data.strip()
+        lst.append(data)
+    with open("../../CommonCrawl/Co-OccurrenceData/mapper_output.txt","w") as ccmap:
+        for i in range(1,len(lst) - 1):
+            pair1 = "(" + lst[i] + "," + lst[i-1] + ")   1"
+            ccmap.write(pair1 + "\n")
+
+cc.close()
+ccmap.close()

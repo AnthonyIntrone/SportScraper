@@ -1,5 +1,5 @@
-# Authors: Anthony Introne
-#          Mike Klein
+#Authors: Anthony Introne
+#         Michael Klein
 
 import json
 import requests

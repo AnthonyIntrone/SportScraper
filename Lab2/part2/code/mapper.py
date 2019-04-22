@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """mapper.py"""
-
+#Authors: Anthony Introne
+#         Michael Klein
 import sys
 
 # input comes from STDIN (standard input)

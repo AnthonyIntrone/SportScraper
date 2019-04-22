@@ -17,6 +17,9 @@ Background:
             pip install beautifulsoup
             pip install tweepy
             pip install nltk
+            pip install NewsPlease
+            pip install urllib
+            pip install gzip
             
 
         Commands to run:
@@ -28,8 +31,7 @@ Background:
         Install Linux and follow above directions
 
 
-File Structure Documentation: The below file structure is represented when in Lab2 directory
-                                    (Each level will have a description to the right)
+File Structure Documentation: The below file structure is represented when in Lab2 root
 
 part1
     |- code

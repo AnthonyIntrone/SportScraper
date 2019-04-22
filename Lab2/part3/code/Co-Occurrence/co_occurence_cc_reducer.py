@@ -10,10 +10,10 @@ current_word = None
 current_count = 0
 word = None
 
-with open("../../NYT/Co-OccurrenceData/mapper_output.txt","r") as nyt:
-    with open("../../NYT/Co-OccurrenceData/reducer_output.txt","w") as reducer:
-        nytdata = nyt.readlines()
-        for data in nytdata:
+with open("../../CommonCrawl/Co-OccurrenceData/mapper_output.txt","r") as cc:
+    with open("../../CommonCrawl/Co-OccurrenceData/reducer_output.txt","w") as reducer:
+        ccdata = cc.readlines()
+        for data in ccdata:
             # parse the input we got from mapper.py
             word = data[:len(data)-3]
             count = data[len(data)-2:len(data)-1]
