@@ -1,0 +1,93 @@
+Background:
+
+    Linux/MACos Instructions:
+
+        Install python3
+
+        Have a env file in Lab2 directory, do the following in terminal:
+            cd into Lab2
+            python3 -m pip install --user --upgrade pip
+            python3 -m pip install --user virtualenv
+            python3 -m virtualenv env
+        
+        Now activate the env file by:
+            source env/bin/activate (note: second parameter is the location of env file) 
+
+        Install pip packages:
+            pip install beautifulsoup
+            pip install tweepy
+            pip install nltk
+            
+
+        Commands to run:
+            Once env activated you can now test every file with:
+                python3 filename
+
+    Windows Instructions:
+
+        Install Linux and follow above directions
+
+
+File Structure Documentation: The below file structure is represented when in Lab2 directory
+                                    (Each level will have a description to the right)
+
+part1
+    |- code
+    |   |- NYTArticles.py
+    |   |- Tweets.py
+    |- data
+        |- CommonCrawl
+        |- NYT 
+        |- Twitter
+part2
+    |- code
+    |   |- aws_sample_output.py
+    |   |- mapper.py
+    |   |- reducer.py
+    |   |- sample_cleaner.py
+    |- output
+    |   |- HFinn
+    |   |- PG345   
+    |- sample_data
+
+part3
+    |- code
+    |   |- Co-Occurrence
+    |   |   |- co_occurrence_mapper.py
+    |   |   |- co_occurrence_reducer.py
+    |   |- WordCount
+    |   |   |- mapper.py
+    |   |   |- reducer.py
+    |   |- Cleaner.py
+    |   |- ManyToOne.py
+    |- CommonCrawl
+    |   |- Co-OccurenceData
+    |   |   |- *******
+    |   |- Code
+    |   |   |- aws_commoncrawl_output.py
+    |   |   |- commoncrawl_sorter.py
+    |   |- Images
+    |   |- WordCountData  
+    |- NYT
+    |   |- Co-OccurenceData
+    |   |   |- *******
+    |   |- Code
+    |   |   |- aws_nyt_output.py
+    |   |   |- nyt_sorter.py
+    |   |- Images
+    |   |- WordCountData  
+    |- Twitter
+    |   |- Co-OccurenceData
+    |   |   |- *******
+    |   |- Code
+    |   |   |- aws_twitter_output.py
+    |   |   |- twitter_sorter.py
+    |   |- Images
+    |   |- WordCountData
+
+webpage
+    |- css
+    |- data
+    |- imgs
+    |- js
+    |- templates
